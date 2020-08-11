@@ -3,5 +3,5 @@ Rails.application.routes.draw do
    get '/' => 'articles#index'
 
 
-   resources :articles,only: [:show, :new, :create]
+   resources :articles,only: [:show, :new, :create, :edit]
 end

@@ -21,6 +21,10 @@ class ArticlesController < ApplicationController
         end
     end
 
+    def edit
+        @article = Article.find(params[:id])
+    end
+
     private #ストロングパラメーターを使う際はpravateを使う
     def article_params #更新する対象_paramsで書く
         params.require(:article).permit(:title, :content) #データ改竄を防ぐために記事形式のタイトルとコンテンツ以外は保存しないようになっている
