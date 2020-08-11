@@ -1,4 +1,7 @@
 <div class="container">
+    <% @article.errors.full_messages.each do |message| %> 
+        <li><%= message %></li>
+    <% end %>
     <%= form_with(model: @article, url: articles_path, method: 'post', local: true) do |f| %>
         <div>
             <%= f.label :title, 'タイトル' %>
