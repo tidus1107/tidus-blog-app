@@ -13,6 +13,14 @@
 
   <body>
     <header class ="header">
+    <div class="header_logos">
+    <% if !current_page?('/') %>
+      <%= link_to :back do %>
+        <%= image_tag 'back.svg', class: 'header_back' %>
+      <% end %>
+    <% end %>
+      <p class="header_pageTitle">BlogApp</p>
+    </div>
       <p class="header_pageTitle">新着記事</p>
       <div class="dropdown">
         <%= image_tag 'default-avatar.png',class:'header_avatar dropbtn' %>
