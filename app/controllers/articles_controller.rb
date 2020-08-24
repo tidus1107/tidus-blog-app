@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-    before_action :set_article, only: [:show, :edit ,:update]
+    before_action :set_article, only: [:show]
     before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
     def index
@@ -10,11 +10,11 @@ class ArticlesController < ApplicationController
     end
 
     def new
-        @article = Article.new
+        @article = current_user.articles.build
     end
 
     def create
-        @article = Article.new(article_params) #データを保存する箱を作る
+        @article = current_user.articles.build(article_params) #データを保存する箱を作る
         if @article.save #データを保存する
             redirect_to article_path(@article),notice: '保存出来ました'
         else
@@ -24,9 +24,11 @@ class ArticlesController < ApplicationController
     end
 
     def edit
+        @article = current_user.articles.find(params[:id])
     end
 
     def update
+        @article = current_user.articles.find(params[:id])
         if @article.update(article_params)
             redirect_to article_path(@article), notice: '更新できました'
         else
@@ -36,7 +38,7 @@ class ArticlesController < ApplicationController
     end
 
     def destroy
-       article = Article.find(params[:id])
+       article = current_user.articles.find(params[:id])
        article.destroy!
        redirect_to '/', notice: '削除に成功しました'
     end
