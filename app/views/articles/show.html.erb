@@ -3,11 +3,11 @@
     <div class="article_detail">
         <%= image_tag 'default-avatar.png' %>
         <div>
-            <p>cohki0305</p>
-            <p><%= @article.display_created_at  %></p>
+              <p><%= @article.author_name %></p>
+              <p><%= @article.display_created_at  %></p>
         </div>
         <div class="article_detail_actions">
-            <% if user_signed_in? %>
+            <% if user_signed_in? && current_user.has_writtten?(@article) %> 
                 <div class="dropdown">
                     <%= image_tag 'actions.svg', class: 'dropdown' %>
                         <div class="dropdown-content mini">
