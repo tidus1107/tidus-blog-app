@@ -1,7 +1,7 @@
 <div class="article">
     <h1 class="article_title"><%= @article.title %></h1>
     <div class="article_detail">
-        <%= image_tag 'default-avatar.png' %>
+        <%= image_tag @article.user.avatar_image %>
         <div>
               <p><%= @article.author_name %></p>
               <p><%= @article.display_created_at  %></p>
