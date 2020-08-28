@@ -41,6 +41,7 @@ $avatar-size: 32px;
 
   &_content {
     padding: 24px 0 32px;
+    margin-bottom: 24px;
   }
 
   &_heart {
@@ -49,6 +50,7 @@ $avatar-size: 32px;
     bottom: 16px;
 
     img {
+      margin-top: 16px;
       width: $heart-size;
       height: $heart-size;
     }
