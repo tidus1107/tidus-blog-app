@@ -1,6 +1,6 @@
 .tabs
-  .tabs_item{class: "#{'active' if current_page?('/')}"}
-    = link_to '新着記事', '/'
-  .tabs_item{class: "#{'active' if current_page?(timeline_path)}"}
+  .tabs_item{class: "#{add_active_class('/')}"}
+    = link_to '新着記事一覧', '/'
+  .tabs_item{class: "#{ add_active_class(timeline_path)}"}
     = link_to 'タイムライン', timeline_path
   
