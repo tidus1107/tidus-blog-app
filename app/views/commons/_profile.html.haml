@@ -4,7 +4,7 @@
       = image_tag user.avatar_image
     .profilePage_user_basicInfo
       .profilePage_user_name
-        .profile_user_desplayName
+        .profile_user_displayName
           #{user.display_name} (#{user.age || '?歳'} ・#{I18n.t("enum.genders.#{user.gender || 'unknown'}")})
         .profilePage_user_actionButton
           - if user == current_user
